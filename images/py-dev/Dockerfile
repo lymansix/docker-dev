@@ -2,7 +2,7 @@ ARG BASE_TAG=noble
 
 FROM docker.io/aghost7/dev-base:$BASE_TAG
 
-USER aghost-7
+USER lymansix
 
 ENV IMAGE_CLASS python
 

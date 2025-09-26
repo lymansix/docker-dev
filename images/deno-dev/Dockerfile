@@ -4,7 +4,7 @@ ARG BASE_TAG=focal
 
 FROM docker.io/aghost7/nvim:$BASE_TAG
 
-USER aghost-7
+USER lymansix
 
 ENV IMAGE_CLASS deno
 

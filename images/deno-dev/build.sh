@@ -27,7 +27,7 @@ cat /tmp/bashrc-additions.sh >> ~/.bashrc
 sudo rm /tmp/bashrc-additions.sh
 
 # for YMC
-curl -o- https://raw.githubusercontent.com/AGhost-7/nvm/v0.33.11/install.sh | bash
+curl -o- https://raw.githubusercontent.com/lymansix/nvm/v0.33.11/install.sh | bash
 source ~/.nvm/nvm.sh
 nvm install node
 # install ymc

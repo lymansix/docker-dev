@@ -8,7 +8,7 @@ set -x
 sudo chown -R $USER:$USER $HOME/.config/nvim
 
 # Install node version manager
-curl -o- https://raw.githubusercontent.com/AGhost-7/nvm/v0.33.11/install.sh | zsh
+curl -o- https://raw.githubusercontent.com/lymansix/nvm/v0.33.11/install.sh | zsh
 
 # Install yarn without nodejs. The package being at the system-level means it
 # will still be available if you switch node version.

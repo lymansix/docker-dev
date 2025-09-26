@@ -13,11 +13,11 @@ import os
 
 language_images = [
     {'name': 'dev-base', 'tag': 'noble'},
-    {'name': 'py-dev', 'tag': 'noble'},
+    # {'name': 'py-dev', 'tag': 'noble'},
     {'name': 'nodejs-dev', 'tag': 'noble'},
-    {'name': 'devops', 'tag': 'noble'},
-    {'name': 'java-dev', 'tag': 'noble'},
-    {'name': 'rust-dev', 'tag': 'noble'},
+    # {'name': 'devops', 'tag': 'noble'},
+    # {'name': 'java-dev', 'tag': 'noble'},
+    # {'name': 'rust-dev', 'tag': 'noble'},
 ]
 
 db_images = [
@@ -25,7 +25,8 @@ db_images = [
     {'name': 'mongo-dev', 'tag': '4.1', 'args': {'BASE_TAG': '4.1'}},
 ]
 
-images = [*language_images, *db_images]
+# images = [*language_images, *db_images]
+images = [*language_images]
 
 # builder_binary = "podman" if sys.platform == "linux" else "docker"
 builder_binary = "docker"
@@ -51,7 +52,7 @@ def expand_images_config(images):
             image['tag'] = 'latest'
         image['dependency'] = parse_image_dependency(image)
         image['full_name'] = (
-            'docker.io/aghost7/' + image['name'] + ':' + image['tag']
+            'crpi-s7cj6cjc1pmc48rp.cn-beijing.personal.cr.aliyuncs.com/lymansix/' + image['name'] + ':' + image['tag']
         )
 
 
@@ -104,7 +105,7 @@ def run_sh_tests(sh_dir, image):
 
 def vader_test_volume(file):
     basedir = path.dirname(__file__)
-    return path.join(basedir, path.dirname(file)) + ':/home/aghost-7/test'
+    return path.join(basedir, path.dirname(file)) + ':/home/lymansix/test'
 
 
 def run_vader_tests(image, vader_dir):

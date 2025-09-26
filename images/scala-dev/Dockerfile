@@ -1,6 +1,6 @@
 FROM docker.io/aghost7/dev-base:jammy
 
-USER aghost-7
+USER lymansix
 
 ENV IMAGE_CLASS scala
 
@@ -13,10 +13,10 @@ VOLUME "$HOME/.ivy2/cache"
 RUN curl -L -o /tmp/sbt.deb https://dl.bintray.com/sbt/debian/sbt-0.13.11.deb && \
 	sudo dpkg -i /tmp/sbt.deb
 
-COPY plugins.sbt /home/aghost-7/.sbt/0.13/plugins/plugins.sbt
+COPY plugins.sbt /home/lymansix/.sbt/0.13/plugins/plugins.sbt
 
-RUN sudo chown -R aghost-7:aghost-7 ~/.sbt && \
-	sudo chown -R aghost-7:aghost-7 ~/.ivy2
+RUN sudo chown -R lymansix:lymansix ~/.sbt && \
+	sudo chown -R lymansix:lymansix ~/.ivy2
 
 COPY plugin.vim /tmp/plugin.vim
 
