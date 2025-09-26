@@ -16,7 +16,7 @@ fi
 
 podman run --rm "$IMAGE" which shellcheck
 
-files="$(podman run --rm "$IMAGE" find /home/aghost-7 -group root)"
+files="$(podman run --rm "$IMAGE" find /home/lymansix -group root)"
 
 if [ "$files" != "" ]; then
 	echo Permission error...

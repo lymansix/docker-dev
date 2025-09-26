@@ -4,8 +4,8 @@ FROM docker.io/library/ubuntu:${UBUNTU_RELEASE} as base
 
 RUN apt-get update && \
 	apt-get install sudo adduser -y && \
-	adduser --disabled-password --gecos '' aghost-7 && \
-	adduser aghost-7 sudo && \
+	adduser --disabled-password --gecos '' lymansix && \
+	adduser lymansix sudo && \
 	echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers && \
 	apt-get autoremove -y && \
 	apt-get clean && \
@@ -39,13 +39,13 @@ RUN apt-get update && \
 # Required for `clear` command to work, etc.
 ENV TERM screen-256color
 
-ENV USER aghost-7
+ENV USER lymansix
 
-ENV HOME /home/aghost-7
+ENV HOME /home/lymansix
 
-WORKDIR /home/aghost-7
+WORKDIR /home/lymansix
 
-USER aghost-7
+USER lymansix
 
 COPY build.sh /tmp/build.sh
 

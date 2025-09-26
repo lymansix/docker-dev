@@ -30,8 +30,8 @@ install-tmux() {
 sudo apt-get update
 
 # Fix file permissions from the copy
-sudo chown -R aghost-7:aghost-7 "$HOME/.config"
-sudo chown aghost-7:aghost-7 /home/aghost-7/.config/tmux/tmux.conf
+sudo chown -R lymansix:lymansix "$HOME/.config"
+sudo chown lymansix:lymansix /home/lymansix/.config/tmux/tmux.conf
 
 # Need to update package cache...
 sudo apt-get update
