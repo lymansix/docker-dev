@@ -27,7 +27,8 @@ db_images = [
 
 images = [*language_images, *db_images]
 
-builder_binary = "podman" if sys.platform == "linux" else "docker"
+# builder_binary = "podman" if sys.platform == "linux" else "docker"
+builder_binary = "docker"
 
 def debug(*args):
     if environ.get('DEBUG') == '1':
