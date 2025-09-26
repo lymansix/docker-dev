@@ -14,7 +14,7 @@ import os
 language_images = [
     {'name': 'dev-base', 'tag': 'noble'},
     # {'name': 'py-dev', 'tag': 'noble'},
-    {'name': 'nodejs-dev', 'tag': 'noble'},
+    # {'name': 'nodejs-dev', 'tag': 'noble'},
     # {'name': 'devops', 'tag': 'noble'},
     # {'name': 'java-dev', 'tag': 'noble'},
     # {'name': 'rust-dev', 'tag': 'noble'},
