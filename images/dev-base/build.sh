@@ -27,10 +27,9 @@ apt-install htop iotop iftop
 # For dig, etc. On ubuntu focal, tzdata is also getting installed, so gotta
 # work around that.
 export DEBIAN_FRONTEND=noninteractive
-ecNeeded for netstat, etc.
 apt-install net-tools
 
-# ho 'Etc/UTC' | sudo tee /etc/timezone
+# echo 'Etc/UTC' | sudo tee /etc/timezone
 apt-install dnsutils
 
 # Needed for netstat, etc.
@@ -128,6 +127,12 @@ curl -L https://raw.githubusercontent.com/sbugzu/gruvbox-zsh/master/gruvbox.zsh-
 
 cp /tmp/zshrc /home/lymansix/.zshrc
 sudo rm /tmp/zshrc
+
+# 设置时区为中国上海
+sudo apt-get install -y tzdata
+sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+echo "Asia/Shanghai" | sudo tee /etc/timezone
+sudo dpkg-reconfigure -f noninteractive tzdata
 
 # cache is useless to keep
 sudo apt-get autoremove -y
