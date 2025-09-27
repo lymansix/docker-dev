@@ -43,8 +43,6 @@ apt-install tcpflow tcpdump
 
 # Install bash tab completion.
 apt-install bash-completion
-
-# ssh
 apt-install openssh-client
 
 # ssh
@@ -55,9 +53,9 @@ sudo sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/
 sudo sed -i 's@#PubkeyAuthentication yes@PubkeyAuthentication yes@' /etc/ssh/sshd_config
 sudo sed -i 's@#AuthorizedKeysFile	.ssh/authorized_keys .ssh/authorized_keys2@AuthorizedKeysFile	.ssh/authorized_keys@' /etc/ssh/sshd_config
 sudo echo "AllowagentForwarding yes" >> /etc/ssh/sshd_config
-mkdir -p /home/lymansix/.ssh
-chmod 700 /home/lymansix/.ssh
-chown -R lymansix:lymansix /home/lymansix/.ssh
+sudo mkdir -p /home/lymansix/.ssh
+sudo chmod 700 /home/lymansix/.ssh
+sudo chown -R lymansix:lymansix /home/lymansix/.ssh
 
 # tailscale
 curl -fsSL https://tailscale.com/install.sh | sh
