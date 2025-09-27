@@ -32,16 +32,12 @@ fbind () {
 
 fbind -c
 
-alias nyan=nyancat
-alias parrot='curl parrot.live'
-
-alias vim='nvim'
-export EDITOR=nvim
+export EDITOR=vim
 
 # oh-my-zsh plugin adds a alias
 unalias gc
 gc() {
-	local commit='EDITOR=nvim git commit || bash' 
+	local commit='EDITOR=vim git commit || bash' 
 	local diff='GIT_PAGER="less -+F" git diff --staged' 
 
 	tmux new-window "$commit" \; split-window -dh "$diff"

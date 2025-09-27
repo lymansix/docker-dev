@@ -3,7 +3,7 @@ ARG UBUNTU_RELEASE=noble
 FROM docker.io/library/ubuntu:${UBUNTU_RELEASE} as base
 
 RUN apt-get update && \
-	apt-get install sudo adduser -y && \
+	apt-get install sudo adduser vim -y && \
 	adduser --disabled-password --gecos '' lymansix && \
 	adduser lymansix sudo && \
 	echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers && \
@@ -11,17 +11,7 @@ RUN apt-get update && \
 	apt-get clean && \
 	rm -rf /var/lib/apt/lists/*
 
-# install man pages, etc
-RUN apt-get update && \
-    apt-get install unminimize -y && \
-    yes | unminimize && \
-    rm -rf /var/lib/apt/lists
-
-# squash image due to unminimize re-installing a lot of packages
-FROM scratch
-COPY --from=base / /
-
-LABEL MAINTAINER jonathan-boudreau@protonmail.com
+LABEL MAINTAINER zhaowangliu58@126.com
 
 ENV UBUNTU_RELEASE=${UBUNTU_RELEASE}
 
@@ -58,7 +48,7 @@ COPY ./inputrc "$HOME/.inputrc"
 
 RUN sudo chown "$USER":"$USER" "$HOME/.inputrc"
 
-CMD ["tmux", "new"]
+CMD ["sudo /usr/sbin/sshd", "-D"]
 
 ENV XDG_CONFIG_HOME "$HOME/.config"
 
@@ -68,16 +58,6 @@ COPY ./tmux.conf "$HOME/.config/tmux/tmux.conf"
 COPY ./tmux-setup.sh /tmp/tmux-setup.sh
 
 RUN bash /tmp/tmux-setup.sh && sudo rm /tmp/tmux-setup.sh
-
-
-COPY init.lua "$HOME/.config/nvim/init.lua"
-COPY base-plugins.lua "$HOME/.config/nvim/lua/plugins/base.lua"
-
-COPY ./.editorconfig "$HOME/.editorconfig"
-
-COPY ./setup-nvim.sh /tmp/setup-nvim.sh
-
-RUN bash /tmp/setup-nvim.sh && sudo rm /tmp/setup-nvim.sh
 
 ENV IMAGE_CLASS=base
 
